@@ -161,8 +161,8 @@ body {
 .footer {
     background-color: black; /*Color de fondo*/
     color: white; /*Color de letra*/
-    position: absolute; /*Posicion del pie de pagina exactamente en donde lo coloquemos*/
-    bottom: 0;/*Espacio donde colocamos el pie de página, en este caso al inferoir de la pagina*/
+    /*position: absolute; /*Posicion del pie de pagina exactamente en donde lo coloquemos*/
+    /*bottom: 0;/*Espacio donde colocamos el pie de página, en este caso al inferoir de la pagina*/
     width: 100%; /*Hace que el ajuste del ancho sea automatico*/
     padding: 20px 0; /*Separacion inf. y sup. de 20px, izq. y der. de 0px, ayudando a centrar el texto*/
 }
