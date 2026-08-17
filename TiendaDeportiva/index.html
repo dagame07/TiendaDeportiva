@@ -42,13 +42,20 @@
                         <span class="search-icon">🔍</span>
                         <input class="form-control" type="search" placeholder="Buscar...">
                     </form>
-                    <div class="cart-icon">🛒</div>
+                    <div class="cart-icon">
+                          <button class="cart-btn" id="cartToggle" aria-label="Abrir carrito">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L20 8H6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="21" r="1.4" fill="currentColor" stroke="none"/><circle cx="17" cy="21" r="1.4" fill="currentColor" stroke="none"/></svg>
+                            <span>Carrito</span>
+                            <span class="cart-count mono" id="cartCount">0</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
     <!-- Termina el Nav -->
 
+   
     <main class="flex-grow-1">
         <!--******primer carrusel***********************************************-->
         <div id="carouselExampleIndicators" class="carousel slide">
@@ -122,6 +129,23 @@
     </div>
     </main>
     
+     <!--Carrito-->
+    <section class="products" id="productos">
+            <div class="grid" id="productGrid"></div>
+            </section>
+
+            <div class="overlay" id="overlay"></div>
+            <aside class="drawer" id="drawer" aria-label="Carrito de compras">
+            <div class="drawer-head">
+                <h2>Tu carrito</h2>
+                <button class="close-btn" id="closeCart" aria-label="Cerrar carrito">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+            <div class="drawer-items" id="drawerItems"></div>
+            <div class="drawer-foot" id="drawerFoot"></div>
+    </aside>
+    <!--Fin de Carrito-->
 
 
 
