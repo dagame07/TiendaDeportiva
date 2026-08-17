@@ -3,6 +3,161 @@ html {
     height: 100%;
 }
 
+/* =========================================
+   1. Estructura Global
+   ========================================= */
+body {
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+/* =========================================
+   2. Barra de Navegación (Base)
+   ========================================= */
+.navbar {
+    background-color: #000000 !important;
+    padding: 10px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================
+   3. Logo y Marca
+   ========================================= */
+.logo-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.custom-logo {
+    width: 40px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Tooltip de la marca */
+.brand-tooltip {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.brand-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 4px;
+    border-style: solid;
+    border-color: #007bff transparent transparent transparent;
+}
+
+/* =========================================
+   4. Elementos del Menú y Botones
+   ========================================= */
+.nav-item .nav-link {
+    background-color: #333;
+    color: white !important;
+    border-radius: 50px;
+    padding: 6px 16px;
+    margin-right: 8px;
+    transition: background 0.3s;
+}
+
+.nav-item .nav-link:hover {
+    background-color: #ff0000;
+}
+
+/* =========================================
+   5. Buscador
+   ========================================= */
+.search-container {
+    background-color: #333;
+    border-radius: 20px;
+    padding: 2px 10px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #444;
+}
+
+.search-container input {
+    background: transparent;
+    border: none;
+    color: white;
+    box-shadow: none;
+    font-size: 0.9rem;
+    padding: 4px;
+}
+
+.search-container input::placeholder {
+    color: #aaa;
+}
+
+.search-container input:focus {
+    background: transparent;
+    color: white;
+    outline: none;
+}
+
+.search-icon {
+    color: #aaa;
+    margin-right: 5px;
+}
+
+/* =========================================
+   6. Iconos y Utilidades
+   ========================================= */
+.cart-icon {
+    color: #ffd700;
+    font-size: 1.4rem;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.text-red {
+    color: red !important;
+}
+
+/* =========================================
+   7. Responsividad (Botón Móvil)
+   ========================================= */
+/* Asegurar que el botón tenga un borde visible */
+.navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    padding: 0.5rem 0.75rem;
+}
+
+/* Forzar el icono a ser blanco puro */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Efecto hover opcional */
+.navbar-toggler:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}   
+
+
 .footer {
     background-color: black; /*Color de fondo*/
     color: white; /*Color de letra*/
