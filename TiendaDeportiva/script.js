@@ -2,10 +2,10 @@
 const products = [
   {
     id: 'Tenis deportivo',
-    name: 'Zapato',
+    name: 'Tenis',
     desc: 'Calzado deportivo ligero con suela antiderrapante, ideal para entrenar o correr.',
     price: 2499,
-    image: 'imagenes/imagen1.jpg'
+    image: 'Pictures'
   },
   {
     id: 'Pantalón deportivo',
