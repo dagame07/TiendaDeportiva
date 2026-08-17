@@ -1,25 +1,57 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Mi sitio web</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
+
 <body>
-   
-<nav>
+  <!-- Inicia el Nav -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
 
-</nav>
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <div class="logo-wrapper">
+                    <div class="brand-tooltip">Carl Vell</div>
+                    <img src="/Pictures/Sports store.png" alt="Logo" class="custom-logo">
+                    <span class="ms-2">Sports <span class="text-red">Store</span></span>
+                </div>
+            </a>
 
+            <!-- Botón Móvil -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#">Destacados</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Hombres</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Mujeres</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Niños</a></li>
+                </ul>
 
+                <div class="d-flex align-items-center">
+                    <form class="search-container me-3" role="search">
+                        <span class="search-icon">🔍</span>
+                        <input class="form-control" type="search" placeholder="Buscar...">
+                    </form>
+                    <div class="cart-icon">🛒</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Termina el Nav -->
 
-<footer>
-
-</footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
