@@ -1,0 +1,18 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+.footer {
+    background-color: black; /*Color de fondo*/
+    color: white; /*Color de letra*/
+    position: absolute; /*Posicion del pie de pagina exactamente en donde lo coloquemos*/
+    bottom: 0;/*Espacio donde colocamos el pie de página, en este caso al inferoir de la pagina*/
+    width: 100%; /*Hace que el ajuste del ancho sea automatico*/
+    padding: 20px 0; /*Separacion inf. y sup. de 20px, izq. y der. de 0px, ayudando a centrar el texto*/
+}
+
+.footer p { /*Busca elementos <p> en footer*/
+    margin-bottom: 0; /*Elimina el espacio vacio que Chrome agrega por defecto a los navegadores web*/
+    font-size: 1rem; /*El texto escala segun tamaño de pantalla*/
+}
