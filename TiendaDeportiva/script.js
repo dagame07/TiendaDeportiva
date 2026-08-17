@@ -1,61 +1,63 @@
 // ---------- Datos de productos ----------
 const products = [
   {
-    id: 'Tenis deportivo',
-    name: 'Tenis',
-    desc: 'Calzado deportivo ligero con suela antiderrapante, ideal para entrenar o correr.',
+    id: "Tenis deportivo",
+    name: "Zapato",
+    desc: "Calzado deportivo ligero con suela antiderrapante, ideal para entrenar o correr.",
     price: 2499,
-    image: 'Pictures'
+    image: "/Pictures/BlusaMujer1.png",
   },
   {
-    id: 'Pantalón deportivo',
-    name: 'Pantalón',
-    desc: 'Pantalón deportivo de tela flexible, cómodo para entrenar o usar en el día a día.',
+    id: "Pantalón deportivo",
+    name: "Pantalón",
+    desc: "Pantalón deportivo de tela flexible, cómodo para entrenar o usar en el día a día.",
     price: 999,
-    image: 'imagenes/imagen2.jpg'
+    image: "/Pictures/BlusaMujer2.png",
   },
   {
-    id: 'Playera deportiva',
-    name: 'Playera',
-    desc: 'Playera deportiva de secado rápido, ligera y transpirable para cualquier actividad.',
+    id: "Playera deportiva",
+    name: "Playera",
+    desc: "Playera deportiva de secado rápido, ligera y transpirable para cualquier actividad.",
     price: 299,
-    image: 'imagenes/imagen3.jpg'
+    image: "/Pictures/Camiseta_Cruz_Azul.png",
   },
   {
-    id: 'Gorra',
-    name: 'Gorra',
-    desc: 'Gorra ajustable con visera curva, ideal para protegerte del sol durante tu entrenamiento.',
+    id: "Gorra",
+    name: "Gorra",
+    desc: "Gorra ajustable con visera curva, ideal para protegerte del sol durante tu entrenamiento.",
     price: 199,
-    image: 'imagenes/imagen4.jpg'
+    image: "/Pictures/CamisetaDeportiva.png",
   },
   {
-    id: 'Short deportivo',
-    name: 'Short',
-    desc: 'Short deportivo cómodo y ligero, con buena movilidad para cualquier ejercicio.',
+    id: "Short deportivo",
+    name: "Short",
+    desc: "Short deportivo cómodo y ligero, con buena movilidad para cualquier ejercicio.",
     price: 499,
-    image: 'imagenes/imagen5.jpg'
+    image: "/Pictures/PDeportivaH1.png",
   },
   {
-    id: 'Calcetines deportivos',
-    name: 'Calcetines',
-    desc: 'Calcetines deportivos acolchonados que brindan soporte y comodidad todo el día.',
+    id: "Calcetines deportivos",
+    name: "Calcetines",
+    desc: "Calcetines deportivos acolchonados que brindan soporte y comodidad todo el día.",
     price: 99,
-    image: 'imagenes/imagen6.jpg'
-  }
+    image: "/Pictures/PDeportivaH2.png",
+  },
 ];
 
 // ---------- Estado del carrito ----------
 const cart = {};
 const MAX_POR_PRODUCTO = 10;
 
-function money(n){
-  return '$' + n.toLocaleString('es-MX');
+function money(n) {
+  return "$" + n.toLocaleString("es-MX");
 }
 
 // ---------- Render de productos ----------
-function renderProducts(){
-  const grid = document.getElementById('productGrid');
-  grid.innerHTML = products.map(p => `
+function renderProducts() {
+  const grid = document.getElementById("productGrid");
+  grid.innerHTML = products
+    .map(
+      (p) => `
     <article class="card">
       <div class="card-art"><img src="${p.image}" alt="${p.name}"></div>
       <div class="card-body">
@@ -70,69 +72,75 @@ function renderProducts(){
         </div>
       </div>
     </article>
-  `).join('');
+  `,
+    )
+    .join("");
 
-  grid.querySelectorAll('.add-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
+  grid.querySelectorAll(".add-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
       addToCart(btn.dataset.id);
-      btn.classList.add('added');
+      btn.classList.add("added");
       const original = btn.innerHTML;
-      btn.innerHTML = 'Agregado ✓';
-      setTimeout(() => { btn.classList.remove('added'); btn.innerHTML = original; }, 900);
+      btn.innerHTML = "Agregado ✓";
+      setTimeout(() => {
+        btn.classList.remove("added");
+        btn.innerHTML = original;
+      }, 900);
     });
   });
 }
 
 // ---------- Lógica del carrito ----------
-function addToCart(id){
+function addToCart(id) {
   const actual = cart[id] || 0;
-  if(actual >= MAX_POR_PRODUCTO) return;
+  if (actual >= MAX_POR_PRODUCTO) return;
   cart[id] = actual + 1;
   renderCart();
   bumpCount();
 }
 
-function changeQty(id, delta){
-  if(!cart[id]) return;
-  if(delta > 0 && cart[id] >= MAX_POR_PRODUCTO) return;
+function changeQty(id, delta) {
+  if (!cart[id]) return;
+  if (delta > 0 && cart[id] >= MAX_POR_PRODUCTO) return;
   cart[id] += delta;
-  if(cart[id] <= 0) delete cart[id];
+  if (cart[id] <= 0) delete cart[id];
   renderCart();
 }
 
-function removeItem(id){
+function removeItem(id) {
   delete cart[id];
   renderCart();
 }
 
-function bumpCount(){
-  const el = document.getElementById('cartCount');
-  el.classList.add('bump');
-  setTimeout(() => el.classList.remove('bump'), 250);
+function bumpCount() {
+  const el = document.getElementById("cartCount");
+  el.classList.add("bump");
+  setTimeout(() => el.classList.remove("bump"), 250);
 }
 
-function renderCart(){
+function renderCart() {
   const ids = Object.keys(cart);
   const totalItems = ids.reduce((sum, id) => sum + cart[id], 0);
-  document.getElementById('cartCount').textContent = totalItems;
+  document.getElementById("cartCount").textContent = totalItems;
 
-  const itemsEl = document.getElementById('drawerItems');
-  const footEl = document.getElementById('drawerFoot');
+  const itemsEl = document.getElementById("drawerItems");
+  const footEl = document.getElementById("drawerFoot");
 
-  if(ids.length === 0){
+  if (ids.length === 0) {
     itemsEl.innerHTML = `
       <div class="empty-cart">
         <p>El carrito está vacío.</p>
       </div>`;
-    footEl.innerHTML = '';
+    footEl.innerHTML = "";
     return;
   }
 
-  itemsEl.innerHTML = ids.map(id => {
-    const p = products.find(x => x.id === id);
-    const qty = cart[id];
-    const alMaximo = qty >= MAX_POR_PRODUCTO;
-    return `
+  itemsEl.innerHTML = ids
+    .map((id) => {
+      const p = products.find((x) => x.id === id);
+      const qty = cart[id];
+      const alMaximo = qty >= MAX_POR_PRODUCTO;
+      return `
       <div class="cart-item">
         <div class="cart-item-art"><img src="${p.image}" alt="${p.name}"></div>
         <div class="cart-item-info">
@@ -142,17 +150,21 @@ function renderCart(){
             <div class="qty-control">
               <button class="qty-btn" data-action="minus" data-id="${id}" aria-label="Quitar una unidad">−</button>
               <span class="qty-val mono">${qty}</span>
-              <button class="qty-btn" data-action="plus" data-id="${id}" aria-label="Agregar una unidad" ${alMaximo ? 'disabled' : ''}>+</button>
+              <button class="qty-btn" data-action="plus" data-id="${id}" aria-label="Agregar una unidad" ${alMaximo ? "disabled" : ""}>+</button>
             </div>
             <span class="item-line-price mono">${money(p.price * qty)}</span>
           </div>
           <button class="remove-btn" data-action="remove" data-id="${id}">Quitar</button>
-          ${alMaximo ? '<p class="max-note">Máximo 10 por producto</p>' : ''}
+          ${alMaximo ? '<p class="max-note">Máximo 10 por producto</p>' : ""}
         </div>
       </div>`;
-  }).join('');
+    })
+    .join("");
 
-  const subtotal = ids.reduce((sum, id) => sum + products.find(x => x.id === id).price * cart[id], 0);
+  const subtotal = ids.reduce(
+    (sum, id) => sum + products.find((x) => x.id === id).price * cart[id],
+    0,
+  );
   footEl.innerHTML = `
     <div class="subtotal-row">
       <span>Subtotal</span>
@@ -162,22 +174,42 @@ function renderCart(){
     <p class="checkout-note">Envío calculado en el siguiente paso</p>
   `;
 
-  itemsEl.querySelectorAll('[data-action="plus"]').forEach(b => b.addEventListener('click', () => changeQty(b.dataset.id, 1)));
-  itemsEl.querySelectorAll('[data-action="minus"]').forEach(b => b.addEventListener('click', () => changeQty(b.dataset.id, -1)));
-  itemsEl.querySelectorAll('[data-action="remove"]').forEach(b => b.addEventListener('click', () => removeItem(b.dataset.id)));
+  itemsEl
+    .querySelectorAll('[data-action="plus"]')
+    .forEach((b) =>
+      b.addEventListener("click", () => changeQty(b.dataset.id, 1)),
+    );
+  itemsEl
+    .querySelectorAll('[data-action="minus"]')
+    .forEach((b) =>
+      b.addEventListener("click", () => changeQty(b.dataset.id, -1)),
+    );
+  itemsEl
+    .querySelectorAll('[data-action="remove"]')
+    .forEach((b) =>
+      b.addEventListener("click", () => removeItem(b.dataset.id)),
+    );
 }
 
 // ---------- Apertura / cierre del panel del carrito ----------
-const drawer = document.getElementById('drawer');
-const overlay = document.getElementById('overlay');
+const drawer = document.getElementById("drawer");
+const overlay = document.getElementById("overlay");
 
-function openCart(){ drawer.classList.add('open'); overlay.classList.add('open'); }
-function closeCart(){ drawer.classList.remove('open'); overlay.classList.remove('open'); }
+function openCart() {
+  drawer.classList.add("open");
+  overlay.classList.add("open");
+}
+function closeCart() {
+  drawer.classList.remove("open");
+  overlay.classList.remove("open");
+}
 
-document.getElementById('cartToggle').addEventListener('click', openCart);
-document.getElementById('closeCart').addEventListener('click', closeCart);
-overlay.addEventListener('click', closeCart);
-document.addEventListener('keydown', e => { if(e.key === 'Escape') closeCart(); });
+document.getElementById("cartToggle").addEventListener("click", openCart);
+document.getElementById("closeCart").addEventListener("click", closeCart);
+overlay.addEventListener("click", closeCart);
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeCart();
+});
 
 // ---------- Inicio ----------
 renderProducts();
