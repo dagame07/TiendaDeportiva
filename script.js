@@ -40,7 +40,7 @@ const products = [
     name: "Tenis para niños",
     desc: "Tenis cómodos y duraderos, ideales para el juego y el deporte en el parque.",
     price: 1499,
-    image: "./Pictures/TenisNiñoNegro.png",
+    image: "./Pictures/TenisNinoNegro.png",
   },
 ];
 
